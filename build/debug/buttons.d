@@ -1,5 +1,4 @@
-build/debug/stm32f1xx_hal_cortex.o: \
- Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c \
+build/debug/buttons.o: Core/Src/buttons.c Core/Inc/buttons.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  Core/Inc/stm32f1xx_hal_conf.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
@@ -27,6 +26,7 @@ build/debug/stm32f1xx_hal_cortex.o: \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc_ex.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
+Core/Inc/buttons.h:
 Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 Core/Inc/stm32f1xx_hal_conf.h:
 Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:

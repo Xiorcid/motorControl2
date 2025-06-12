@@ -26,6 +26,7 @@
 #include "stdlib.h"
 #include "math.h"
 #include "six_step.h"
+#include "buttons.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -50,6 +51,8 @@ ADC_HandleTypeDef hadc1;
 DMA_HandleTypeDef hdma_adc1;
 
 IWDG_HandleTypeDef hiwdg;
+
+RTC_HandleTypeDef hrtc;
 
 TIM_HandleTypeDef htim1;
 
@@ -78,6 +81,10 @@ uint16_t target_duty = 0;
 float current = 0.0f;
 
 bool isScreenConnected = false;
+
+bool isMotorEnabled = false;
+
+Button start_stop_btt = {Start_Stop_BTT_GPIO_Port, Start_Stop_BTT_Pin, TYPE_HIGH_PULL};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -87,6 +94,7 @@ static void MX_DMA_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_IWDG_Init(void);
+static void MX_RTC_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -129,11 +137,26 @@ int main(void)
   MX_ADC1_Init();
   MX_TIM1_Init();
   MX_IWDG_Init();
+  MX_RTC_Init();
   /* USER CODE BEGIN 2 */
   HAL_ADC_Stop(&hadc1);
   HAL_ADCEx_Calibration_Start(&hadc1);
 
   HAL_ADC_Start_DMA(&hadc1, (uint32_t*)&adc_value, 1);
+
+  uint16_t motorEnBackupValue = HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR1);
+  uint16_t targetDutyBackupValue = HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR2);
+  uint16_t realDutyBackupValue = HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR3);
+  uint16_t code = HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR4);
+
+  if(code == 0xAA55){
+    isMotorEnabled = motorEnBackupValue;
+    target_duty = targetDutyBackupValue;
+    duty = realDutyBackupValue;
+  }
+
+  init(&start_stop_btt);
+  HAL_GPIO_WritePin(Start_Stop_LED_GPIO_Port, Start_Stop_LED_Pin, isMotorEnabled);
 
   MC_DisablePWM();
   MC_InitPWM();
@@ -151,6 +174,12 @@ int main(void)
     if (HAL_IWDG_Refresh(&hiwdg) != HAL_OK){
 		  Error_Handler();
 	  }
+
+    if(isClicked(&start_stop_btt)){
+      isMotorEnabled = !isMotorEnabled;
+      HAL_GPIO_WritePin(Start_Stop_LED_GPIO_Port, Start_Stop_LED_Pin, isMotorEnabled);
+    }
+    tick(&start_stop_btt);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -197,12 +226,17 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC;
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_RTC|RCC_PERIPHCLK_ADC;
+  PeriphClkInit.RTCClockSelection = RCC_RTCCLKSOURCE_LSI;
   PeriphClkInit.AdcClockSelection = RCC_ADCPCLK2_DIV6;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
     Error_Handler();
   }
+
+  /** Enables the Clock Security System
+  */
+  HAL_RCC_EnableCSS();
 }
 
 /**
@@ -277,6 +311,37 @@ static void MX_IWDG_Init(void)
   /* USER CODE BEGIN IWDG_Init 2 */
 
   /* USER CODE END IWDG_Init 2 */
+
+}
+
+/**
+  * @brief RTC Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_RTC_Init(void)
+{
+
+  /* USER CODE BEGIN RTC_Init 0 */
+
+  /* USER CODE END RTC_Init 0 */
+
+  /* USER CODE BEGIN RTC_Init 1 */
+
+  /* USER CODE END RTC_Init 1 */
+
+  /** Initialize RTC Only
+  */
+  hrtc.Instance = RTC;
+  hrtc.Init.AsynchPrediv = RTC_AUTO_1_SECOND;
+  hrtc.Init.OutPut = RTC_OUTPUTSOURCE_ALARM;
+  if (HAL_RTC_Init(&hrtc) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN RTC_Init 2 */
+
+  /* USER CODE END RTC_Init 2 */
 
 }
 
@@ -400,6 +465,9 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOC, LED_Pin|PH1L_Pin|PH2L_Pin|PH3L_Pin, GPIO_PIN_RESET);
 
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(Start_Stop_LED_GPIO_Port, Start_Stop_LED_Pin, GPIO_PIN_RESET);
+
   /*Configure GPIO pins : LED_Pin PH1L_Pin PH2L_Pin PH3L_Pin */
   GPIO_InitStruct.Pin = LED_Pin|PH1L_Pin|PH2L_Pin|PH3L_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -407,11 +475,18 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : H1_Pin H2_Pin H3_Pin */
-  GPIO_InitStruct.Pin = H1_Pin|H2_Pin|H3_Pin;
+  /*Configure GPIO pins : Start_Stop_BTT_Pin H1_Pin H2_Pin H3_Pin */
+  GPIO_InitStruct.Pin = Start_Stop_BTT_Pin|H1_Pin|H2_Pin|H3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : Start_Stop_LED_Pin */
+  GPIO_InitStruct.Pin = Start_Stop_LED_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(Start_Stop_LED_GPIO_Port, &GPIO_InitStruct);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 
@@ -436,7 +511,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
   HAL_ADC_Start_DMA(&hadc1, (uint32_t*)&adc_value, 1);
 
   uint16_t gase_value = constrain(adc_value, gase_zero_pos, gase_max_pos);
-  target_duty = map(gase_value, gase_zero_pos, gase_max_pos, 0, 2399);  
+  target_duty = map(gase_value, gase_zero_pos, gase_max_pos, 0, 2299);  
+
+  if(!isMotorEnabled){target_duty = 0;}
 
   duty_dt++;
   if(duty_dt >= 319){
@@ -455,6 +532,15 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
     MC_LoadStep(hall_value);
   }
   HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
+
+  HAL_PWR_EnableBkUpAccess();
+
+  HAL_RTCEx_BKUPWrite(&hrtc, RTC_BKP_DR1, isMotorEnabled);
+  HAL_RTCEx_BKUPWrite(&hrtc, RTC_BKP_DR2, target_duty);
+  HAL_RTCEx_BKUPWrite(&hrtc, RTC_BKP_DR3, duty);
+  HAL_RTCEx_BKUPWrite(&hrtc, RTC_BKP_DR4, 0xAA55);
+
+  HAL_PWR_DisableBkUpAccess();
 }
 /* USER CODE END 4 */
 

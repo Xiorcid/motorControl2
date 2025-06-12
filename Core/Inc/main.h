@@ -63,6 +63,10 @@ void Error_Handler(void);
 #define LED_GPIO_Port GPIOC
 #define GASE_Pin GPIO_PIN_0
 #define GASE_GPIO_Port GPIOA
+#define Start_Stop_BTT_Pin GPIO_PIN_10
+#define Start_Stop_BTT_GPIO_Port GPIOB
+#define Start_Stop_LED_Pin GPIO_PIN_11
+#define Start_Stop_LED_GPIO_Port GPIOB
 #define H1_Pin GPIO_PIN_13
 #define H1_GPIO_Port GPIOB
 #define H2_Pin GPIO_PIN_14

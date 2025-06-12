@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 1
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 1
   47 0014 0821     		movs	r1, #8
   48 0016 2046     		mov	r0, r4
   49 0018 FFF7FEFF 		bl	HAL_TIM_PWM_Stop
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 2
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s 			page 2
 
 
   50              	.LVL2:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 1
   99              		.cfi_endproc
  100              	.LFE66:
  102              		.section	.text.MC_InitPWM,"ax",%progbits
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 3
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s 			page 3
 
 
  103              		.align	1
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 1
  147 0024 FFF7FEFF 		bl	HAL_TIM_PWM_Start
  148              	.LVL8:
   28:Core/Src/six_step.c ****     HAL_TIM_Base_Start_IT(&htim1);
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 4
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s 			page 4
 
 
  149              		.loc 1 28 5 view .LVU22
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 1
   34:Core/Src/six_step.c ****             // Z L H
   35:Core/Src/six_step.c ****             HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);
  200              		.loc 1 35 13 is_stmt 1 view .LVU28
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 5
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s 			page 5
 
 
  201 0012 604D     		ldr	r5, .L24
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 1
   52:Core/Src/six_step.c ****             // H Z L
   53:Core/Src/six_step.c ****             HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   54:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH1L_GPIO_Port, PH1L_Pin, GPIO_PIN_SET);
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 6
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s 			page 6
 
 
   55:Core/Src/six_step.c ****             HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 1
   46:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH2L_GPIO_Port, PH2L_Pin, GPIO_PIN_RESET);
  255              		.loc 1 46 13 view .LVU39
  256 0068 0421     		movs	r1, #4
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 7
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s 			page 7
 
 
  257 006a 2846     		mov	r0, r5
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 1
  303              	.LVL28:
   57:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH3L_GPIO_Port, PH3L_Pin, GPIO_PIN_RESET);
  304              		.loc 1 57 13 view .LVU48
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 8
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s 			page 8
 
 
  305 00bc 0821     		movs	r1, #8
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 1
  351 010c FFF7FEFF 		bl	HAL_GPIO_WritePin
  352              	.LVL36:
   68:Core/Src/six_step.c ****         case 2:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 9
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s 			page 9
 
 
  353              		.loc 1 68 13 view .LVU57
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 1
  399              	.LVL43:
   81:Core/Src/six_step.c ****             HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);
  400              		.loc 1 81 13 view .LVU66
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 10
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s 			page 10
 
 
  401 015c 0E4C     		ldr	r4, .L24+4
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 1
  450              		.loc 1 92 36 is_stmt 1 view -0
  451              		.cfi_startproc
  452              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 11
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s 			page 11
 
 
  453              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -634,28 +634,28 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 1
  480              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
  481              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
  482              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h"
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 12
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s 			page 12
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 six_step.c
-C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:19     .text.MC_DisablePWM:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:25     .text.MC_DisablePWM:00000000 MC_DisablePWM
-C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:56     .text.MC_DisablePWM:00000020 $d
-C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:61     .text.MC_EnablePWM:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:67     .text.MC_EnablePWM:00000000 MC_EnablePWM
-C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:98     .text.MC_EnablePWM:00000020 $d
-C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:103    .text.MC_InitPWM:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:109    .text.MC_InitPWM:00000000 MC_InitPWM
-C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:158    .text.MC_InitPWM:00000030 $d
-C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:164    .text.MC_LoadStep:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:170    .text.MC_LoadStep:00000000 MC_LoadStep
-C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:192    .text.MC_LoadStep:0000000c $d
-C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:198    .text.MC_LoadStep:00000012 $t
-C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:435    .text.MC_LoadStep:00000194 $d
-C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:441    .text.MC_SetDuty:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:447    .text.MC_SetDuty:00000000 MC_SetDuty
-C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:470    .text.MC_SetDuty:0000000c $d
+C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s:19     .text.MC_DisablePWM:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s:25     .text.MC_DisablePWM:00000000 MC_DisablePWM
+C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s:56     .text.MC_DisablePWM:00000020 $d
+C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s:61     .text.MC_EnablePWM:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s:67     .text.MC_EnablePWM:00000000 MC_EnablePWM
+C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s:98     .text.MC_EnablePWM:00000020 $d
+C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s:103    .text.MC_InitPWM:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s:109    .text.MC_InitPWM:00000000 MC_InitPWM
+C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s:158    .text.MC_InitPWM:00000030 $d
+C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s:164    .text.MC_LoadStep:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s:170    .text.MC_LoadStep:00000000 MC_LoadStep
+C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s:192    .text.MC_LoadStep:0000000c $d
+C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s:198    .text.MC_LoadStep:00000012 $t
+C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s:435    .text.MC_LoadStep:00000194 $d
+C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s:441    .text.MC_SetDuty:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s:447    .text.MC_SetDuty:00000000 MC_SetDuty
+C:\Users\kroko\AppData\Local\Temp\cc2f5E5f.s:470    .text.MC_SetDuty:0000000c $d
 
 UNDEFINED SYMBOLS
 HAL_TIM_PWM_Stop
