@@ -1,0 +1,665 @@
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"six_step.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "Core/Src/six_step.c"
+  18              		.section	.text.MC_DisablePWM,"ax",%progbits
+  19              		.align	1
+  20              		.global	MC_DisablePWM
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	MC_DisablePWM:
+  26              	.LFB65:
+   1:Core/Src/six_step.c **** #include "main.h"
+   2:Core/Src/six_step.c **** #include "six_step.h"
+   3:Core/Src/six_step.c **** 
+   4:Core/Src/six_step.c **** extern TIM_HandleTypeDef htim1;
+   5:Core/Src/six_step.c **** 
+   6:Core/Src/six_step.c **** void MC_DisablePWM(void){
+  27              		.loc 1 6 25 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 10B5     		push	{r4, lr}
+  32              		.cfi_def_cfa_offset 8
+  33              		.cfi_offset 4, -8
+  34              		.cfi_offset 14, -4
+   7:Core/Src/six_step.c **** 	HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);
+  35              		.loc 1 7 2 view .LVU1
+  36 0002 074C     		ldr	r4, .L3
+  37 0004 0021     		movs	r1, #0
+  38 0006 2046     		mov	r0, r4
+  39 0008 FFF7FEFF 		bl	HAL_TIM_PWM_Stop
+  40              	.LVL0:
+   8:Core/Src/six_step.c ****     HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);
+  41              		.loc 1 8 5 view .LVU2
+  42 000c 0421     		movs	r1, #4
+  43 000e 2046     		mov	r0, r4
+  44 0010 FFF7FEFF 		bl	HAL_TIM_PWM_Stop
+  45              	.LVL1:
+   9:Core/Src/six_step.c ****     HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_3);
+  46              		.loc 1 9 5 view .LVU3
+  47 0014 0821     		movs	r1, #8
+  48 0016 2046     		mov	r0, r4
+  49 0018 FFF7FEFF 		bl	HAL_TIM_PWM_Stop
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 2
+
+
+  50              	.LVL2:
+  10:Core/Src/six_step.c **** }
+  51              		.loc 1 10 1 is_stmt 0 view .LVU4
+  52 001c 10BD     		pop	{r4, pc}
+  53              	.L4:
+  54 001e 00BF     		.align	2
+  55              	.L3:
+  56 0020 00000000 		.word	htim1
+  57              		.cfi_endproc
+  58              	.LFE65:
+  60              		.section	.text.MC_EnablePWM,"ax",%progbits
+  61              		.align	1
+  62              		.global	MC_EnablePWM
+  63              		.syntax unified
+  64              		.thumb
+  65              		.thumb_func
+  67              	MC_EnablePWM:
+  68              	.LFB66:
+  11:Core/Src/six_step.c **** 
+  12:Core/Src/six_step.c **** void MC_EnablePWM(void){
+  69              		.loc 1 12 24 is_stmt 1 view -0
+  70              		.cfi_startproc
+  71              		@ args = 0, pretend = 0, frame = 0
+  72              		@ frame_needed = 0, uses_anonymous_args = 0
+  73 0000 10B5     		push	{r4, lr}
+  74              		.cfi_def_cfa_offset 8
+  75              		.cfi_offset 4, -8
+  76              		.cfi_offset 14, -4
+  13:Core/Src/six_step.c ****   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+  77              		.loc 1 13 3 view .LVU6
+  78 0002 074C     		ldr	r4, .L7
+  79 0004 0021     		movs	r1, #0
+  80 0006 2046     		mov	r0, r4
+  81 0008 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+  82              	.LVL3:
+  14:Core/Src/six_step.c ****   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+  83              		.loc 1 14 3 view .LVU7
+  84 000c 0421     		movs	r1, #4
+  85 000e 2046     		mov	r0, r4
+  86 0010 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+  87              	.LVL4:
+  15:Core/Src/six_step.c ****   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+  88              		.loc 1 15 3 view .LVU8
+  89 0014 0821     		movs	r1, #8
+  90 0016 2046     		mov	r0, r4
+  91 0018 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+  92              	.LVL5:
+  16:Core/Src/six_step.c **** }
+  93              		.loc 1 16 1 is_stmt 0 view .LVU9
+  94 001c 10BD     		pop	{r4, pc}
+  95              	.L8:
+  96 001e 00BF     		.align	2
+  97              	.L7:
+  98 0020 00000000 		.word	htim1
+  99              		.cfi_endproc
+ 100              	.LFE66:
+ 102              		.section	.text.MC_InitPWM,"ax",%progbits
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 3
+
+
+ 103              		.align	1
+ 104              		.global	MC_InitPWM
+ 105              		.syntax unified
+ 106              		.thumb
+ 107              		.thumb_func
+ 109              	MC_InitPWM:
+ 110              	.LFB67:
+  17:Core/Src/six_step.c **** 
+  18:Core/Src/six_step.c **** void MC_InitPWM(void){
+ 111              		.loc 1 18 22 is_stmt 1 view -0
+ 112              		.cfi_startproc
+ 113              		@ args = 0, pretend = 0, frame = 0
+ 114              		@ frame_needed = 0, uses_anonymous_args = 0
+ 115 0000 10B5     		push	{r4, lr}
+ 116              		.cfi_def_cfa_offset 8
+ 117              		.cfi_offset 4, -8
+ 118              		.cfi_offset 14, -4
+  19:Core/Src/six_step.c ****     TIM1->CCR1 = 0;
+ 119              		.loc 1 19 5 view .LVU11
+ 120              		.loc 1 19 16 is_stmt 0 view .LVU12
+ 121 0002 0B4B     		ldr	r3, .L11
+ 122 0004 0021     		movs	r1, #0
+ 123 0006 5963     		str	r1, [r3, #52]
+  20:Core/Src/six_step.c ****     TIM1->CCR2 = 0;
+ 124              		.loc 1 20 5 is_stmt 1 view .LVU13
+ 125              		.loc 1 20 16 is_stmt 0 view .LVU14
+ 126 0008 9963     		str	r1, [r3, #56]
+  21:Core/Src/six_step.c ****     TIM1->CCR3 = 0;
+ 127              		.loc 1 21 5 is_stmt 1 view .LVU15
+ 128              		.loc 1 21 16 is_stmt 0 view .LVU16
+ 129 000a D963     		str	r1, [r3, #60]
+  22:Core/Src/six_step.c ****     TIM1->CCR4 = 1;
+ 130              		.loc 1 22 5 is_stmt 1 view .LVU17
+ 131              		.loc 1 22 16 is_stmt 0 view .LVU18
+ 132 000c 0122     		movs	r2, #1
+ 133 000e 1A64     		str	r2, [r3, #64]
+  23:Core/Src/six_step.c **** 
+  24:Core/Src/six_step.c ****     
+  25:Core/Src/six_step.c ****     HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+ 134              		.loc 1 25 5 is_stmt 1 view .LVU19
+ 135 0010 084C     		ldr	r4, .L11+4
+ 136 0012 2046     		mov	r0, r4
+ 137 0014 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 138              	.LVL6:
+  26:Core/Src/six_step.c ****     HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+ 139              		.loc 1 26 5 view .LVU20
+ 140 0018 0421     		movs	r1, #4
+ 141 001a 2046     		mov	r0, r4
+ 142 001c FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 143              	.LVL7:
+  27:Core/Src/six_step.c ****     HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+ 144              		.loc 1 27 5 view .LVU21
+ 145 0020 0821     		movs	r1, #8
+ 146 0022 2046     		mov	r0, r4
+ 147 0024 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 148              	.LVL8:
+  28:Core/Src/six_step.c ****     HAL_TIM_Base_Start_IT(&htim1);
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 4
+
+
+ 149              		.loc 1 28 5 view .LVU22
+ 150 0028 2046     		mov	r0, r4
+ 151 002a FFF7FEFF 		bl	HAL_TIM_Base_Start_IT
+ 152              	.LVL9:
+  29:Core/Src/six_step.c **** }
+ 153              		.loc 1 29 1 is_stmt 0 view .LVU23
+ 154 002e 10BD     		pop	{r4, pc}
+ 155              	.L12:
+ 156              		.align	2
+ 157              	.L11:
+ 158 0030 002C0140 		.word	1073818624
+ 159 0034 00000000 		.word	htim1
+ 160              		.cfi_endproc
+ 161              	.LFE67:
+ 163              		.section	.text.MC_LoadStep,"ax",%progbits
+ 164              		.align	1
+ 165              		.global	MC_LoadStep
+ 166              		.syntax unified
+ 167              		.thumb
+ 168              		.thumb_func
+ 170              	MC_LoadStep:
+ 171              	.LVL10:
+ 172              	.LFB68:
+  30:Core/Src/six_step.c **** 
+  31:Core/Src/six_step.c **** void MC_LoadStep(uint8_t step){
+ 173              		.loc 1 31 31 is_stmt 1 view -0
+ 174              		.cfi_startproc
+ 175              		@ args = 0, pretend = 0, frame = 0
+ 176              		@ frame_needed = 0, uses_anonymous_args = 0
+ 177              		.loc 1 31 31 is_stmt 0 view .LVU25
+ 178 0000 38B5     		push	{r3, r4, r5, lr}
+ 179              		.cfi_def_cfa_offset 16
+ 180              		.cfi_offset 3, -16
+ 181              		.cfi_offset 4, -12
+ 182              		.cfi_offset 5, -8
+ 183              		.cfi_offset 14, -4
+  32:Core/Src/six_step.c ****     switch (step) {
+ 184              		.loc 1 32 5 is_stmt 1 view .LVU26
+ 185 0002 0138     		subs	r0, r0, #1
+ 186              	.LVL11:
+ 187              		.loc 1 32 5 is_stmt 0 view .LVU27
+ 188 0004 0528     		cmp	r0, #5
+ 189 0006 23D8     		bhi	.L13
+ 190 0008 DFE800F0 		tbb	[pc, r0]
+ 191              	.L16:
+ 192 000c 43       		.byte	(.L21-.L16)/2
+ 193 000d 83       		.byte	(.L20-.L16)/2
+ 194 000e 63       		.byte	(.L19-.L16)/2
+ 195 000f 03       		.byte	(.L18-.L16)/2
+ 196 0010 23       		.byte	(.L17-.L16)/2
+ 197 0011 A3       		.byte	(.L15-.L16)/2
+ 198              		.p2align 1
+ 199              	.L18:
+  33:Core/Src/six_step.c ****         case 4:
+  34:Core/Src/six_step.c ****             // Z L H
+  35:Core/Src/six_step.c ****             HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);
+ 200              		.loc 1 35 13 is_stmt 1 view .LVU28
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 5
+
+
+ 201 0012 604D     		ldr	r5, .L24
+ 202 0014 0021     		movs	r1, #0
+ 203 0016 2846     		mov	r0, r5
+ 204              	.LVL12:
+ 205              		.loc 1 35 13 is_stmt 0 view .LVU29
+ 206 0018 FFF7FEFF 		bl	HAL_TIM_PWM_Stop
+ 207              	.LVL13:
+  36:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH1L_GPIO_Port, PH1L_Pin, GPIO_PIN_SET);
+ 208              		.loc 1 36 13 is_stmt 1 view .LVU30
+ 209 001c 5E4C     		ldr	r4, .L24+4
+ 210 001e 0122     		movs	r2, #1
+ 211 0020 8021     		movs	r1, #128
+ 212 0022 2046     		mov	r0, r4
+ 213 0024 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 214              	.LVL14:
+  37:Core/Src/six_step.c ****             HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);
+ 215              		.loc 1 37 13 view .LVU31
+ 216 0028 0421     		movs	r1, #4
+ 217 002a 2846     		mov	r0, r5
+ 218 002c FFF7FEFF 		bl	HAL_TIM_PWM_Stop
+ 219              	.LVL15:
+  38:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH2L_GPIO_Port, PH2L_Pin, GPIO_PIN_RESET);
+ 220              		.loc 1 38 13 view .LVU32
+ 221 0030 0022     		movs	r2, #0
+ 222 0032 4FF48071 		mov	r1, #256
+ 223 0036 2046     		mov	r0, r4
+ 224 0038 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 225              	.LVL16:
+  39:Core/Src/six_step.c ****             HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+ 226              		.loc 1 39 13 view .LVU33
+ 227 003c 0821     		movs	r1, #8
+ 228 003e 2846     		mov	r0, r5
+ 229 0040 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 230              	.LVL17:
+  40:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH3L_GPIO_Port, PH3L_Pin, GPIO_PIN_SET);
+ 231              		.loc 1 40 13 view .LVU34
+ 232 0044 0122     		movs	r2, #1
+ 233 0046 4FF40071 		mov	r1, #512
+ 234 004a 2046     		mov	r0, r4
+ 235 004c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 236              	.LVL18:
+  41:Core/Src/six_step.c ****             break;
+ 237              		.loc 1 41 13 view .LVU35
+ 238              	.L13:
+  42:Core/Src/six_step.c ****         case 5:
+  43:Core/Src/six_step.c ****             // H L Z
+  44:Core/Src/six_step.c ****             HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+  45:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH1L_GPIO_Port, PH1L_Pin, GPIO_PIN_SET);
+  46:Core/Src/six_step.c ****             HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);
+  47:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH2L_GPIO_Port, PH2L_Pin, GPIO_PIN_RESET);
+  48:Core/Src/six_step.c ****             HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_3);
+  49:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH3L_GPIO_Port, PH3L_Pin, GPIO_PIN_SET);
+  50:Core/Src/six_step.c ****             break;
+  51:Core/Src/six_step.c ****         case 1:
+  52:Core/Src/six_step.c ****             // H Z L
+  53:Core/Src/six_step.c ****             HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+  54:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH1L_GPIO_Port, PH1L_Pin, GPIO_PIN_SET);
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 6
+
+
+  55:Core/Src/six_step.c ****             HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);
+  56:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH2L_GPIO_Port, PH2L_Pin, GPIO_PIN_SET);
+  57:Core/Src/six_step.c ****             HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_3);
+  58:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH3L_GPIO_Port, PH3L_Pin, GPIO_PIN_RESET);
+  59:Core/Src/six_step.c ****             break;
+  60:Core/Src/six_step.c ****         case 3:
+  61:Core/Src/six_step.c ****             // Z H L
+  62:Core/Src/six_step.c ****             HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);
+  63:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH1L_GPIO_Port, PH1L_Pin, GPIO_PIN_SET);
+  64:Core/Src/six_step.c ****             HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+  65:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH2L_GPIO_Port, PH2L_Pin, GPIO_PIN_SET);
+  66:Core/Src/six_step.c ****             HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_3);
+  67:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH3L_GPIO_Port, PH3L_Pin, GPIO_PIN_RESET);
+  68:Core/Src/six_step.c ****             break;
+  69:Core/Src/six_step.c ****         case 2:
+  70:Core/Src/six_step.c ****             // L H Z
+  71:Core/Src/six_step.c ****             HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);
+  72:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH1L_GPIO_Port, PH1L_Pin, GPIO_PIN_RESET);
+  73:Core/Src/six_step.c ****             HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+  74:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH2L_GPIO_Port, PH2L_Pin, GPIO_PIN_SET);
+  75:Core/Src/six_step.c ****             HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_3);
+  76:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH3L_GPIO_Port, PH3L_Pin, GPIO_PIN_SET);
+  77:Core/Src/six_step.c ****             break;
+  78:Core/Src/six_step.c ****         case 6:
+  79:Core/Src/six_step.c ****             // L Z H
+  80:Core/Src/six_step.c ****             HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);
+  81:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH1L_GPIO_Port, PH1L_Pin, GPIO_PIN_RESET);
+  82:Core/Src/six_step.c ****             HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);
+  83:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH2L_GPIO_Port, PH2L_Pin, GPIO_PIN_SET);
+  84:Core/Src/six_step.c ****             HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+  85:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH3L_GPIO_Port, PH3L_Pin, GPIO_PIN_SET);
+  86:Core/Src/six_step.c ****             break;
+  87:Core/Src/six_step.c ****         default:
+  88:Core/Src/six_step.c ****             break;
+  89:Core/Src/six_step.c ****     }
+  90:Core/Src/six_step.c **** }
+ 239              		.loc 1 90 1 is_stmt 0 view .LVU36
+ 240 0050 38BD     		pop	{r3, r4, r5, pc}
+ 241              	.L17:
+  44:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH1L_GPIO_Port, PH1L_Pin, GPIO_PIN_SET);
+ 242              		.loc 1 44 13 is_stmt 1 view .LVU37
+ 243 0052 504D     		ldr	r5, .L24
+ 244 0054 0021     		movs	r1, #0
+ 245 0056 2846     		mov	r0, r5
+ 246 0058 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 247              	.LVL19:
+  45:Core/Src/six_step.c ****             HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);
+ 248              		.loc 1 45 13 view .LVU38
+ 249 005c 4E4C     		ldr	r4, .L24+4
+ 250 005e 0122     		movs	r2, #1
+ 251 0060 8021     		movs	r1, #128
+ 252 0062 2046     		mov	r0, r4
+ 253 0064 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 254              	.LVL20:
+  46:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH2L_GPIO_Port, PH2L_Pin, GPIO_PIN_RESET);
+ 255              		.loc 1 46 13 view .LVU39
+ 256 0068 0421     		movs	r1, #4
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 7
+
+
+ 257 006a 2846     		mov	r0, r5
+ 258 006c FFF7FEFF 		bl	HAL_TIM_PWM_Stop
+ 259              	.LVL21:
+  47:Core/Src/six_step.c ****             HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_3);
+ 260              		.loc 1 47 13 view .LVU40
+ 261 0070 0022     		movs	r2, #0
+ 262 0072 4FF48071 		mov	r1, #256
+ 263 0076 2046     		mov	r0, r4
+ 264 0078 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 265              	.LVL22:
+  48:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH3L_GPIO_Port, PH3L_Pin, GPIO_PIN_SET);
+ 266              		.loc 1 48 13 view .LVU41
+ 267 007c 0821     		movs	r1, #8
+ 268 007e 2846     		mov	r0, r5
+ 269 0080 FFF7FEFF 		bl	HAL_TIM_PWM_Stop
+ 270              	.LVL23:
+  49:Core/Src/six_step.c ****             break;
+ 271              		.loc 1 49 13 view .LVU42
+ 272 0084 0122     		movs	r2, #1
+ 273 0086 4FF40071 		mov	r1, #512
+ 274 008a 2046     		mov	r0, r4
+ 275 008c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 276              	.LVL24:
+  50:Core/Src/six_step.c ****         case 1:
+ 277              		.loc 1 50 13 view .LVU43
+ 278 0090 DEE7     		b	.L13
+ 279              	.L21:
+  53:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH1L_GPIO_Port, PH1L_Pin, GPIO_PIN_SET);
+ 280              		.loc 1 53 13 view .LVU44
+ 281 0092 404D     		ldr	r5, .L24
+ 282 0094 0021     		movs	r1, #0
+ 283 0096 2846     		mov	r0, r5
+ 284 0098 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 285              	.LVL25:
+  54:Core/Src/six_step.c ****             HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);
+ 286              		.loc 1 54 13 view .LVU45
+ 287 009c 3E4C     		ldr	r4, .L24+4
+ 288 009e 0122     		movs	r2, #1
+ 289 00a0 8021     		movs	r1, #128
+ 290 00a2 2046     		mov	r0, r4
+ 291 00a4 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 292              	.LVL26:
+  55:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH2L_GPIO_Port, PH2L_Pin, GPIO_PIN_SET);
+ 293              		.loc 1 55 13 view .LVU46
+ 294 00a8 0421     		movs	r1, #4
+ 295 00aa 2846     		mov	r0, r5
+ 296 00ac FFF7FEFF 		bl	HAL_TIM_PWM_Stop
+ 297              	.LVL27:
+  56:Core/Src/six_step.c ****             HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_3);
+ 298              		.loc 1 56 13 view .LVU47
+ 299 00b0 0122     		movs	r2, #1
+ 300 00b2 4FF48071 		mov	r1, #256
+ 301 00b6 2046     		mov	r0, r4
+ 302 00b8 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 303              	.LVL28:
+  57:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH3L_GPIO_Port, PH3L_Pin, GPIO_PIN_RESET);
+ 304              		.loc 1 57 13 view .LVU48
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 8
+
+
+ 305 00bc 0821     		movs	r1, #8
+ 306 00be 2846     		mov	r0, r5
+ 307 00c0 FFF7FEFF 		bl	HAL_TIM_PWM_Stop
+ 308              	.LVL29:
+  58:Core/Src/six_step.c ****             break;
+ 309              		.loc 1 58 13 view .LVU49
+ 310 00c4 0022     		movs	r2, #0
+ 311 00c6 4FF40071 		mov	r1, #512
+ 312 00ca 2046     		mov	r0, r4
+ 313 00cc FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 314              	.LVL30:
+  59:Core/Src/six_step.c ****         case 3:
+ 315              		.loc 1 59 13 view .LVU50
+ 316 00d0 BEE7     		b	.L13
+ 317              	.L19:
+  62:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH1L_GPIO_Port, PH1L_Pin, GPIO_PIN_SET);
+ 318              		.loc 1 62 13 view .LVU51
+ 319 00d2 304D     		ldr	r5, .L24
+ 320 00d4 0021     		movs	r1, #0
+ 321 00d6 2846     		mov	r0, r5
+ 322 00d8 FFF7FEFF 		bl	HAL_TIM_PWM_Stop
+ 323              	.LVL31:
+  63:Core/Src/six_step.c ****             HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+ 324              		.loc 1 63 13 view .LVU52
+ 325 00dc 2E4C     		ldr	r4, .L24+4
+ 326 00de 0122     		movs	r2, #1
+ 327 00e0 8021     		movs	r1, #128
+ 328 00e2 2046     		mov	r0, r4
+ 329 00e4 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 330              	.LVL32:
+  64:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH2L_GPIO_Port, PH2L_Pin, GPIO_PIN_SET);
+ 331              		.loc 1 64 13 view .LVU53
+ 332 00e8 0421     		movs	r1, #4
+ 333 00ea 2846     		mov	r0, r5
+ 334 00ec FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 335              	.LVL33:
+  65:Core/Src/six_step.c ****             HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_3);
+ 336              		.loc 1 65 13 view .LVU54
+ 337 00f0 0122     		movs	r2, #1
+ 338 00f2 4FF48071 		mov	r1, #256
+ 339 00f6 2046     		mov	r0, r4
+ 340 00f8 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 341              	.LVL34:
+  66:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH3L_GPIO_Port, PH3L_Pin, GPIO_PIN_RESET);
+ 342              		.loc 1 66 13 view .LVU55
+ 343 00fc 0821     		movs	r1, #8
+ 344 00fe 2846     		mov	r0, r5
+ 345 0100 FFF7FEFF 		bl	HAL_TIM_PWM_Stop
+ 346              	.LVL35:
+  67:Core/Src/six_step.c ****             break;
+ 347              		.loc 1 67 13 view .LVU56
+ 348 0104 0022     		movs	r2, #0
+ 349 0106 4FF40071 		mov	r1, #512
+ 350 010a 2046     		mov	r0, r4
+ 351 010c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 352              	.LVL36:
+  68:Core/Src/six_step.c ****         case 2:
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 9
+
+
+ 353              		.loc 1 68 13 view .LVU57
+ 354 0110 9EE7     		b	.L13
+ 355              	.L20:
+  71:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH1L_GPIO_Port, PH1L_Pin, GPIO_PIN_RESET);
+ 356              		.loc 1 71 13 view .LVU58
+ 357 0112 204D     		ldr	r5, .L24
+ 358 0114 0021     		movs	r1, #0
+ 359 0116 2846     		mov	r0, r5
+ 360 0118 FFF7FEFF 		bl	HAL_TIM_PWM_Stop
+ 361              	.LVL37:
+  72:Core/Src/six_step.c ****             HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+ 362              		.loc 1 72 13 view .LVU59
+ 363 011c 1E4C     		ldr	r4, .L24+4
+ 364 011e 0022     		movs	r2, #0
+ 365 0120 8021     		movs	r1, #128
+ 366 0122 2046     		mov	r0, r4
+ 367 0124 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 368              	.LVL38:
+  73:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH2L_GPIO_Port, PH2L_Pin, GPIO_PIN_SET);
+ 369              		.loc 1 73 13 view .LVU60
+ 370 0128 0421     		movs	r1, #4
+ 371 012a 2846     		mov	r0, r5
+ 372 012c FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 373              	.LVL39:
+  74:Core/Src/six_step.c ****             HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_3);
+ 374              		.loc 1 74 13 view .LVU61
+ 375 0130 0122     		movs	r2, #1
+ 376 0132 4FF48071 		mov	r1, #256
+ 377 0136 2046     		mov	r0, r4
+ 378 0138 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 379              	.LVL40:
+  75:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH3L_GPIO_Port, PH3L_Pin, GPIO_PIN_SET);
+ 380              		.loc 1 75 13 view .LVU62
+ 381 013c 0821     		movs	r1, #8
+ 382 013e 2846     		mov	r0, r5
+ 383 0140 FFF7FEFF 		bl	HAL_TIM_PWM_Stop
+ 384              	.LVL41:
+  76:Core/Src/six_step.c ****             break;
+ 385              		.loc 1 76 13 view .LVU63
+ 386 0144 0122     		movs	r2, #1
+ 387 0146 4FF40071 		mov	r1, #512
+ 388 014a 2046     		mov	r0, r4
+ 389 014c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 390              	.LVL42:
+  77:Core/Src/six_step.c ****         case 6:
+ 391              		.loc 1 77 13 view .LVU64
+ 392 0150 7EE7     		b	.L13
+ 393              	.L15:
+  80:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH1L_GPIO_Port, PH1L_Pin, GPIO_PIN_RESET);
+ 394              		.loc 1 80 13 view .LVU65
+ 395 0152 104D     		ldr	r5, .L24
+ 396 0154 0021     		movs	r1, #0
+ 397 0156 2846     		mov	r0, r5
+ 398 0158 FFF7FEFF 		bl	HAL_TIM_PWM_Stop
+ 399              	.LVL43:
+  81:Core/Src/six_step.c ****             HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);
+ 400              		.loc 1 81 13 view .LVU66
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 10
+
+
+ 401 015c 0E4C     		ldr	r4, .L24+4
+ 402 015e 0022     		movs	r2, #0
+ 403 0160 8021     		movs	r1, #128
+ 404 0162 2046     		mov	r0, r4
+ 405 0164 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 406              	.LVL44:
+  82:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH2L_GPIO_Port, PH2L_Pin, GPIO_PIN_SET);
+ 407              		.loc 1 82 13 view .LVU67
+ 408 0168 0421     		movs	r1, #4
+ 409 016a 2846     		mov	r0, r5
+ 410 016c FFF7FEFF 		bl	HAL_TIM_PWM_Stop
+ 411              	.LVL45:
+  83:Core/Src/six_step.c ****             HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+ 412              		.loc 1 83 13 view .LVU68
+ 413 0170 0122     		movs	r2, #1
+ 414 0172 4FF48071 		mov	r1, #256
+ 415 0176 2046     		mov	r0, r4
+ 416 0178 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 417              	.LVL46:
+  84:Core/Src/six_step.c ****             HAL_GPIO_WritePin(PH3L_GPIO_Port, PH3L_Pin, GPIO_PIN_SET);
+ 418              		.loc 1 84 13 view .LVU69
+ 419 017c 0821     		movs	r1, #8
+ 420 017e 2846     		mov	r0, r5
+ 421 0180 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 422              	.LVL47:
+  85:Core/Src/six_step.c ****             break;
+ 423              		.loc 1 85 13 view .LVU70
+ 424 0184 0122     		movs	r2, #1
+ 425 0186 4FF40071 		mov	r1, #512
+ 426 018a 2046     		mov	r0, r4
+ 427 018c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 428              	.LVL48:
+  86:Core/Src/six_step.c ****         default:
+ 429              		.loc 1 86 13 view .LVU71
+ 430              		.loc 1 90 1 is_stmt 0 view .LVU72
+ 431 0190 5EE7     		b	.L13
+ 432              	.L25:
+ 433 0192 00BF     		.align	2
+ 434              	.L24:
+ 435 0194 00000000 		.word	htim1
+ 436 0198 00100140 		.word	1073811456
+ 437              		.cfi_endproc
+ 438              	.LFE68:
+ 440              		.section	.text.MC_SetDuty,"ax",%progbits
+ 441              		.align	1
+ 442              		.global	MC_SetDuty
+ 443              		.syntax unified
+ 444              		.thumb
+ 445              		.thumb_func
+ 447              	MC_SetDuty:
+ 448              	.LVL49:
+ 449              	.LFB69:
+  91:Core/Src/six_step.c **** 
+  92:Core/Src/six_step.c **** void MC_SetDuty(uint16_t DutyCycle){
+ 450              		.loc 1 92 36 is_stmt 1 view -0
+ 451              		.cfi_startproc
+ 452              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 11
+
+
+ 453              		@ frame_needed = 0, uses_anonymous_args = 0
+ 454              		@ link register save eliminated.
+  93:Core/Src/six_step.c **** 	TIM1->CCR1 = DutyCycle;
+ 455              		.loc 1 93 2 view .LVU74
+ 456              		.loc 1 93 13 is_stmt 0 view .LVU75
+ 457 0000 024B     		ldr	r3, .L27
+ 458 0002 5863     		str	r0, [r3, #52]
+  94:Core/Src/six_step.c **** 	TIM1->CCR2 = DutyCycle;
+ 459              		.loc 1 94 2 is_stmt 1 view .LVU76
+ 460              		.loc 1 94 13 is_stmt 0 view .LVU77
+ 461 0004 9863     		str	r0, [r3, #56]
+  95:Core/Src/six_step.c **** 	TIM1->CCR3 = DutyCycle;
+ 462              		.loc 1 95 2 is_stmt 1 view .LVU78
+ 463              		.loc 1 95 13 is_stmt 0 view .LVU79
+ 464 0006 D863     		str	r0, [r3, #60]
+  96:Core/Src/six_step.c **** }...
+ 465              		.loc 1 96 1 view .LVU80
+ 466 0008 7047     		bx	lr
+ 467              	.L28:
+ 468 000a 00BF     		.align	2
+ 469              	.L27:
+ 470 000c 002C0140 		.word	1073818624
+ 471              		.cfi_endproc
+ 472              	.LFE69:
+ 474              		.text
+ 475              	.Letext0:
+ 476              		.file 2 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/ma
+ 477              		.file 3 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/sy
+ 478              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 479              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 480              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
+ 481              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 482              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h"
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s 			page 12
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 six_step.c
+C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:19     .text.MC_DisablePWM:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:25     .text.MC_DisablePWM:00000000 MC_DisablePWM
+C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:56     .text.MC_DisablePWM:00000020 $d
+C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:61     .text.MC_EnablePWM:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:67     .text.MC_EnablePWM:00000000 MC_EnablePWM
+C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:98     .text.MC_EnablePWM:00000020 $d
+C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:103    .text.MC_InitPWM:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:109    .text.MC_InitPWM:00000000 MC_InitPWM
+C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:158    .text.MC_InitPWM:00000030 $d
+C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:164    .text.MC_LoadStep:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:170    .text.MC_LoadStep:00000000 MC_LoadStep
+C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:192    .text.MC_LoadStep:0000000c $d
+C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:198    .text.MC_LoadStep:00000012 $t
+C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:435    .text.MC_LoadStep:00000194 $d
+C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:441    .text.MC_SetDuty:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:447    .text.MC_SetDuty:00000000 MC_SetDuty
+C:\Users\kroko\AppData\Local\Temp\ccNDhXHg.s:470    .text.MC_SetDuty:0000000c $d
+
+UNDEFINED SYMBOLS
+HAL_TIM_PWM_Stop
+htim1
+HAL_TIM_PWM_Start
+HAL_TIM_Base_Start_IT
+HAL_GPIO_WritePin
